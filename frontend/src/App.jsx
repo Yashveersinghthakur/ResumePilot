@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 /* ─────────────────────────────────────────────────────── */
 /*  CONFIG                                                  */
 /* ─────────────────────────────────────────────────────── */
-const API = "http://localhost:5000/api";
+const API = `${import.meta.env.VITE_API_URL}/api`;
 
 const api = async (path, options = {}, token = null) => {
   const headers = { "Content-Type": "application/json" };
@@ -1529,7 +1529,7 @@ function ChatWidget() {
 
   try {
     const res = await fetch(
-      "http://localhost:5000/api/chat",
+      `${import.meta.env.VITE_API_URL}/api/chat`,
       {
         method: "POST",
         headers: {
